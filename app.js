@@ -56,8 +56,8 @@ const checkPlaying = song => {
 song.ontimeupdate = function() {
   let currentTime = song.currentTime;
   let elapsed = forcedDuration - currentTime;
-  let seconds = Math.floor(elapsed % 60);
-  let minutes = Math.floor(elapsed / 60);
+  let seconds = Math.floor(elapsed % 60);  // to make minutes 60 seconds
+  let minutes = Math.floor(elapsed / 60);  // to make minutes out of seconds
   timeDisplay.textContent = `${minutes}:${seconds}`;
   let progress = outlineLength - (currentTime / forcedDuration) * outlineLength;
   outline.style.strokeDashoffset = progress;
